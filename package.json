@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://abdelrhman-sabry59.github.io/",
+  "homepage": "https://abdelrhman-sabry59.github.io/portfolio_by_react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
