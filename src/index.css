@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap");
+
+body.dark {
+  --bg: #0a0c14;
+  --card: #10131f;
+  --card-2: #151827;
+  --primary: #8b5cf6;
+  --primary-soft: rgba(139, 92, 246, 0.16);
+  --gold: #f0b429;
+  --gold-soft: rgba(240, 180, 41, 0.14);
+  --text: #ededf2;
+  --soft: #8a8fa3;
+  --border: rgba(237, 237, 242, 0.08);
+  --shadow-glow: rgba(139, 92, 246, 0.35);
+}
+
+body.light {
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --card-2: #f3ede3;
+  --primary: #6d28d9;
+  --primary-soft: rgba(109, 40, 217, 0.08);
+  --gold: #b8860b;
+  --gold-soft: rgba(184, 134, 11, 0.12);
+  --text: #241c3d;
+  --soft: #6b6478;
+  --border: rgba(36, 28, 61, 0.1);
+  --shadow-glow: rgba(109, 40, 217, 0.16);
+}
+
+/* [data-theme="light"] {
+} */
+
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+.container {
+  padding: 0 6vw;
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 15% 0%,
+      var(--primary-soft),
+      transparent
+    ),
+    radial-gradient(ellipse 40% 40% at 100% 100%, var(--gold-soft), transparent);
+}
+
+a.active {
+  padding: 5px 10px;
+  border-radius: 1rem;
+  border-bottom: 3px solid var(--gold);
+  color: var(--text) !important;
+}

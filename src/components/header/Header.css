@@ -1,0 +1,175 @@
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 20, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+}
+.overlay.hide {
+  display: none;
+}
+.overlay:not(.hide) {
+  display: block;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 6vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* background: rgba(16, 19, 31, 0.7); */
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.mode {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.menu {
+  font-size: 1.5rem;
+  color: var(--soft);
+  cursor: pointer;
+  display: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+.menu:hover {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav a {
+  position: relative;
+  color: var(--soft);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--gold));
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+.nav a:hover::after {
+  width: 100%;
+}
+
+.mode {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.mode:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 14px var(--shadow-glow);
+  transform: rotate(15deg);
+}
+
+.mode svg {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: 20px;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav.show {
+    display: flex;
+    visibility: visible;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    gap: 1rem;
+    z-index: 55;
+
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: dropIn 0.35s ease;
+  }
+
+  .nav.show li a {
+    padding: 8px 0;
+    color: var(--soft);
+  }
+
+  .nav.show li a.active {
+    color: var(--gold);
+    border-bottom: none;
+    padding: 8px 0;
+  }
+
+  .nav.show li a:hover {
+    color: var(--primary);
+    padding-left: 8px;
+  }
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
